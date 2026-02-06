@@ -1,0 +1,11 @@
+1. Primeros pasos → Editor overview
+
+El editor de Godot es el entorno donde se crean y organizan todos los elementos del juego. Está dividido en paneles principales como el Sistema de Archivos, el Árbol de Escenas, el Inspector y el Viewport, que permiten trabajar de forma visual y estructurada. Comprender la función de cada panel es clave para navegar y desarrollar proyectos de manera eficiente.
+
+2. Conceptos de escena → Qué son y cómo funcionan las escenas
+
+Una escena en Godot es una unidad reutilizable que agrupa nodos para representar un objeto, personaje o sistema completo del juego. Las escenas pueden guardarse como archivos independientes y luego instanciarse múltiples veces en otras escenas. Este enfoque permite modularidad, reutilización y un desarrollo más ordenado.
+
+3. Nodos y escenas → Diferencia y relación entre ambos
+
+Los nodos son los bloques básicos de Godot y representan funcionalidades específicas como gráficos, lógica o colisiones. Una escena es una combinación jerárquica de nodos organizados bajo un nodo raíz. En conjunto, los nodos definen el comportamiento y las escenas permiten estructurar y reutilizar esos conjuntos dentro del juego.

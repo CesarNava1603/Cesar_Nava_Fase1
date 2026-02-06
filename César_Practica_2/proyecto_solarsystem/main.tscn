@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cmyxmqdjcmwb3"]
+
+[ext_resource type="Script" uid="uid://cvflnxl18wtc5" path="res://main.gd" id="1_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://c1tp7pqe622b5" path="res://icon.svg" id="2_lquwl"]
+[ext_resource type="PackedScene" uid="uid://bjb6h37n301qe" path="res://planeta.tscn" id="3_7mycd"]
+
+[node name="SistemaSolar" type="Node2D" unique_id=1026519266]
+position = Vector2(528, 360)
+script = ExtResource("1_1bvp3")
+
+[node name="Sol" type="Sprite2D" parent="." unique_id=2080031099]
+modulate = Color(18.892157, 18.892157, 0, 1)
+scale = Vector2(0.8, 0.751)
+texture = ExtResource("2_lquwl")
+
+[node name="Timer" type="Timer" parent="Sol" unique_id=1191557753]
+wait_time = 0.016
+autostart = true
+
+[node name="Planetas" type="Node2D" parent="." unique_id=1925597370]
+
+[node name="Planeta" parent="Planetas" unique_id=634292819 instance=ExtResource("3_7mycd")]
+scale = Vector2(0.9, 0.9)
+radio = 100.0
+
+[node name="Planeta2" parent="Planetas" unique_id=72491828 instance=ExtResource("3_7mycd")]
+scale = Vector2(1.3, 1.3)
+velocidad = 0.6
+
+[node name="Planeta3" parent="Planetas" unique_id=122602301 instance=ExtResource("3_7mycd")]
+scale = Vector2(1.1, 1.1)
+radio = 220.0
+velocidad = 0.3
+
+[connection signal="timeout" from="Sol/Timer" to="." method="_on_timer_timeout"]

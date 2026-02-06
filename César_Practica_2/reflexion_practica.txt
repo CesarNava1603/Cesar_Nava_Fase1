@@ -1,0 +1,5 @@
+Durante el desarrollo de esta actividad en Godot, pude comprender mejor cómo está organizado el editor y la importancia de cada una de sus herramientas. Al explorar paneles como el Árbol de Escenas, el Inspector y el Sistema de Archivos, entendí que el orden y la jerarquía son fundamentales para trabajar de manera clara y eficiente dentro de un proyecto.
+
+Asimismo, el concepto de escenas y nodos me permitió ver cómo un juego puede construirse a partir de piezas pequeñas y reutilizables. Aprender que una escena puede representar un objeto completo, como un planeta, y que luego puede instanciarse varias veces, facilita mucho el diseño y mantenimiento del juego.
+
+Finalmente, esta actividad me ayudó a relacionar la teoría con la práctica, ya que no solo aprendí los conceptos básicos de Godot, sino que también los apliqué en un ejemplo concreto como el sistema solar. Esto reforzó mi comprensión del motor y me dio mayor confianza para seguir explorando y creando proyectos más complejos en el futuro.

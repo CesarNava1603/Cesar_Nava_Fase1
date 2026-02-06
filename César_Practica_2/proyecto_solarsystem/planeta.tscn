@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bjb6h37n301qe"]
+
+[ext_resource type="Script" uid="uid://7e71ictlvkdg" path="res://planeta.gd" id="1_8xq8f"]
+[ext_resource type="Texture2D" uid="uid://pylbfq5anuv3" path="res://tierra2.png" id="2_8xq8f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_plgr5"]
+
+[node name="Planeta" type="Node2D" unique_id=634292819]
+script = ExtResource("1_8xq8f")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1068807827]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_8xq8f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1203239447]
+shape = SubResource("CircleShape2D_plgr5")
