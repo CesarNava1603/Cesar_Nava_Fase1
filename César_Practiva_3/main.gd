@@ -34,7 +34,7 @@ func new_game():
 	$HUD.update_score(score)
 	$HUD.show_message("Get Ready")
 	get_tree().call_group("mobs", "queue_free")
-	get_tree().call_group("powers", "queue_free")
+	get_tree().call_group("powerups", "queue_free")
 	$Music.play()
 
 func _on_mob_timer_timeout():
