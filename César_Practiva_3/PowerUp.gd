@@ -6,6 +6,7 @@ enum PowerType { SHIELD, PUSH, SPEED }
 
 
 func _ready():
+	add_to_group("powerups")
 	area_entered.connect(_on_area_entered)
 
 func _on_area_entered(area):
