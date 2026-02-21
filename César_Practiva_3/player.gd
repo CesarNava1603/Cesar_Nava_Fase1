@@ -46,6 +46,7 @@ func _process(delta):
 func _on_body_entered(_body):
 	if shield_active:
 		shield_active = false
+		modulate = Color(1, 1, 1)
 		return
 	hide() # Player disappears after being hit.
 	hit.emit()
@@ -60,6 +61,7 @@ func apply_powerup(power_type):
 	match power_type:
 		0:
 			shield_active = true
+			modulate = Color(0.5, 0.8, 1.2)
 		1:
 			push_enemies()
 		2:
