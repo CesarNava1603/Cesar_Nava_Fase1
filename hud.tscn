@@ -1,0 +1,166 @@
+[gd_scene format=3 uid="uid://ccvc31u8gawlj"]
+
+[ext_resource type="Script" uid="uid://dne7qicfwhw51" path="res://hud.gd" id="1_64ctp"]
+[ext_resource type="FontFile" uid="uid://cf1fblyacg4lx" path="res://fonts/Xolonium-Regular.ttf" id="2_8sq4i"]
+[ext_resource type="Texture2D" uid="uid://cmy62pclw4is1" path="res://art/metales.png" id="3_8sq4i"]
+[ext_resource type="Texture2D" uid="uid://cjgmn0ww6383f" path="res://art/vial.png" id="3_640wx"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_64ctp"]
+action = &"start_game"
+
+[sub_resource type="Shortcut" id="Shortcut_8sq4i"]
+events = [SubResource("InputEventAction_64ctp")]
+
+[node name="HUD" type="CanvasLayer" unique_id=472219979]
+script = ExtResource("1_64ctp")
+heart_full = ExtResource("3_8sq4i")
+heart_empty = ExtResource("3_640wx")
+
+[node name="StartMenu" type="VBoxContainer" parent="." unique_id=1307458272]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.5
+offset_top = -230.5
+offset_right = 79.5
+offset_bottom = 230.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Message" type="Label" parent="StartMenu" unique_id=2142494225]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Survive the forces 
+of the Lord Ruler!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="StartMenu" unique_id=479000126]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+shortcut = SubResource("Shortcut_8sq4i")
+text = "Start"
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=1769197283]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.5
+offset_right = 22.5
+offset_bottom = 78.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_8sq4i")
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MessageTimer" type="Timer" parent="." unique_id=1348457635]
+wait_time = 2.0
+one_shot = true
+
+[node name="HeartsContainer" type="Control" parent="." unique_id=2111940738]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 60.0
+
+[node name="Heart1" type="TextureRect" parent="HeartsContainer" unique_id=2131300832]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_left = 36.0
+offset_top = -20.0
+offset_right = 649.0
+offset_bottom = 593.0
+rotation = 0.7853982
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_8sq4i")
+stretch_mode = 2
+
+[node name="Heart2" type="TextureRect" parent="HeartsContainer" unique_id=1366012294]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_left = 116.0
+offset_top = -20.0
+offset_right = 729.0
+offset_bottom = 593.0
+rotation = 0.7853982
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_8sq4i")
+stretch_mode = 2
+
+[node name="Heart3" type="TextureRect" parent="HeartsContainer" unique_id=1004558381]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_left = 196.0
+offset_top = -20.0
+offset_right = 809.0
+offset_bottom = 593.0
+rotation = 0.7853982
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_8sq4i")
+stretch_mode = 2
+
+[node name="GameOverUI" type="Control" parent="." unique_id=998344665]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="GameOverUI" unique_id=2121255591]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverUI/Panel" unique_id=1607932036]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -217.0
+offset_top = -52.5
+offset_right = 217.0
+offset_bottom = 52.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Game Over" type="Label" parent="GameOverUI/Panel/VBoxContainer" unique_id=1378649803]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8sq4i")
+theme_override_font_sizes/font_size = 64
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="GameOverUI/Panel/VBoxContainer" unique_id=1035134178]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8sq4i")
+theme_override_font_sizes/font_size = 64
+text = "Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="Button" parent="GameOverUI/Panel/VBoxContainer" unique_id=2142285093]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8sq4i")
+theme_override_font_sizes/font_size = 64
+text = "Restart"
+
+[connection signal="pressed" from="StartMenu/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
+[connection signal="pressed" from="GameOverUI/Panel/VBoxContainer/Restart" to="." method="_on_restart_button_pressed"]
