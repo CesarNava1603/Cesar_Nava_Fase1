@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://byapjpvgrrgow"]
+
+[ext_resource type="Script" uid="uid://dfd0fxu20qs1p" path="res://PowerUp.gd" id="1_1jq60"]
+[ext_resource type="AudioStream" uid="uid://dkw6fw17cpjap" path="res://art/powerup.mp3" id="2_rk66f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1jq60"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1jq60"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 80.0
+initial_velocity_max = 150.0
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 3.0
+color = Color(4.042983e-06, 0.87523973, 0.87568253, 1)
+
+[node name="PowerUp" type="Area2D" unique_id=1027374925]
+position = Vector2(32, 24)
+collision_layer = 2
+script = ExtResource("1_1jq60")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1064521121]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1562300170]
+position = Vector2(32, 16)
+shape = SubResource("CircleShape2D_1jq60")
+one_way_collision_margin = 128.0
+
+[node name="CollectParticles" type="GPUParticles2D" parent="." unique_id=67895104]
+process_mode = 3
+z_index = 10
+position = Vector2(24, 8)
+emitting = false
+amount = 50
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_1jq60")
+
+[node name="PowerUpSound" type="AudioStreamPlayer2D" parent="." unique_id=1670556741]
+stream = ExtResource("2_rk66f")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dhd4swj4b4ogv"]
+
+[ext_resource type="Script" uid="uid://dfd0fxu20qs1p" path="res://PowerUp.gd" id="1_mnery"]
+[ext_resource type="Texture2D" uid="uid://cec8ot2he6nhb" path="res://art/Speed.png" id="2_mnery"]
+[ext_resource type="AudioStream" uid="uid://dkw6fw17cpjap" path="res://art/powerup.mp3" id="3_yj7ih"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mnery"]
+radius = 24.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mnery"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 80.0
+initial_velocity_max = 150.0
+gravity = Vector3(0, -50, 0)
+color = Color(0, 0.57254905, 1, 1)
+
+[node name="PowerUpSpeed" type="Area2D" unique_id=1392428209]
+script = ExtResource("1_mnery")
+power_type = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2032040795]
+position = Vector2(-3.33786e-06, -3.33786e-06)
+scale = Vector2(0.14222221, 0.14222221)
+texture = ExtResource("2_mnery")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=515393706]
+scale = Vector2(0.6, 0.6)
+shape = SubResource("CircleShape2D_mnery")
+
+[node name="CollectParticles" type="GPUParticles2D" parent="." unique_id=1785708551]
+emitting = false
+amount = 50
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_mnery")
+
+[node name="PowerUpSound" type="AudioStreamPlayer2D" parent="." unique_id=1707357995]
+stream = ExtResource("3_yj7ih")
