@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c6a5sehnq1pud"]
+
+[ext_resource type="Script" uid="uid://cq5x8nm3lcktj" path="res://scripts/npc.gd" id="1_nh2m4"]
+[ext_resource type="PackedScene" uid="uid://1fdaw76a6hvs" path="res://models/Cart.glb" id="2_abqhh"]
+[ext_resource type="PackedScene" uid="uid://wgba1p072wi0" path="res://models/covered_wagon.glb" id="3_rv78h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_abqhh"]
+
+[node name="NPC" type="CharacterBody3D" unique_id=2032753646 groups=["npc"]]
+collision_layer = 5
+collision_mask = 2
+script = ExtResource("1_nh2m4")
+speed = 4.0
+
+[node name="Model_A" parent="." unique_id=704799868 instance=ExtResource("2_abqhh")]
+transform = Transform3D(-0.07478727, 0, -0.99719954, 0, 1, 0, 0.99719954, 0, -0.07478727, 0, 0, 0)
+
+[node name="Model_B" parent="." unique_id=647200929 instance=ExtResource("3_rv78h")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 3.2930179)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1857374519]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 2, 0, 0)
+shape = SubResource("BoxShape3D_abqhh")

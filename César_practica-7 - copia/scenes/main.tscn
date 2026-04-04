@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://16hhfugxjwk5"]
+
+[ext_resource type="PackedScene" uid="uid://bcdfkc0ey3oae" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://x5u053cm1tkb" path="res://scripts/main.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://c6a5sehnq1pud" path="res://scenes/npc.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://cypja4are2b8p" path="res://models/path_1.glb" id="2_tbgi4"]
+[ext_resource type="Script" uid="uid://kr30tuiuwag6" path="res://scripts/npc_spawner.gd" id="4_jyhfs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o5qli"]
+size = Vector3(10, 1, 50)
+
+[node name="Main" type="Node3D" unique_id=784451459]
+script = ExtResource("1_sugp2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=492203424]
+
+[node name="path" parent="StaticBody3D" unique_id=2106601936 instance=ExtResource("2_tbgi4")]
+transform = Transform3D(1.0732393e-07, 0, -9, 0, 9, 0, 9, 0, 1.0732393e-07, 0, 0, 0)
+
+[node name="path2" parent="StaticBody3D" unique_id=2105867147 instance=ExtResource("2_tbgi4")]
+transform = Transform3D(-3.934025e-07, 0, 9, 0, 9, 0, -9, 0, -3.934025e-07, 0, 0, 13.868775)
+
+[node name="path3" parent="StaticBody3D" unique_id=1467086880 instance=ExtResource("2_tbgi4")]
+transform = Transform3D(1.0732393e-07, 0, -9, 0, 9, 0, 9, 0, 1.0732393e-07, 0, 0, 25.706997)
+
+[node name="path4" parent="StaticBody3D" unique_id=104338029 instance=ExtResource("2_tbgi4")]
+transform = Transform3D(-3.934025e-07, 0, 9, 0, 9, 0, -9, 0, -3.934025e-07, 0, 0, -13.322705)
+
+[node name="path5" parent="StaticBody3D" unique_id=1905693303 instance=ExtResource("2_tbgi4")]
+transform = Transform3D(1.0732393e-07, 0, -9, 0, 9, 0, 9, 0, 1.0732393e-07, 0, 0, -26.683327)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1594822846]
+shape = SubResource("BoxShape3D_o5qli")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=242227743]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.743948, 7.259634, 3.6299849)
+light_energy = 3.08
+directional_shadow_max_distance = 8192.0
+directional_shadow_pancake_size = 21.4
+sky_mode = 1
+
+[node name="Player" parent="." unique_id=11586093 node_paths=PackedStringArray("spawn_point") instance=ExtResource("1_o5qli")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 2, 25)
+spawn_point = NodePath("../SpawnPoint")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1267787518]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1788347383]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="SpawnPoint" type="Node3D" parent="." unique_id=472998458]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 25)
+
+[node name="NPCSpawner" type="Node3D" parent="." unique_id=450348972 node_paths=PackedStringArray("player")]
+script = ExtResource("4_jyhfs")
+player = NodePath("../Player")
+npc_scene = ExtResource("2_0wfyh")
+spawn_interval = 1.5
+spawn_z = 50.0
