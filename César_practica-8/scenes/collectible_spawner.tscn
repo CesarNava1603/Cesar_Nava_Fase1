@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b10a62k73bw0w"]
+
+[ext_resource type="Script" uid="uid://b3llnaaoc2q5g" path="res://scripts/collectible_spawner.gd" id="1_63qh1"]
+[ext_resource type="PackedScene" uid="uid://d0q1trbn74jgs" path="res://scenes/Collectible.tscn" id="2_8ahmx"]
+
+[node name="CollectibleSpawner" type="Node3D" unique_id=1524368507]
+script = ExtResource("1_63qh1")
+collectible_scene = ExtResource("2_8ahmx")
+spawn_area_size = Vector3(5, 2, 30)
+spawn_height = 2.0
+max_collectibles = 15
